@@ -1,3 +1,4 @@
+
 import sys
 
 key_value_pairs = []
@@ -10,8 +11,7 @@ for line in sys.stdin:
         key = tuple(sorted((person, friend)))
         value = friends_list
         key_value_pairs.append((key, tuple(value)))
-# print(key_value_pairs)
-# print('----------------')
+
 
 pairs1 = []
 keys = []
@@ -26,7 +26,4 @@ for i in range(0, len(key_value_pairs)):
         keys.append(key)
 
 for pair in pairs1:
-    out = str(pair[0]) + '   '
-    for val in pair[1]:
-        out += str(val) + ';'
-    print(out)
+    print('%s\t%s' % (pair[0], pair[1]))
