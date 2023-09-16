@@ -8,11 +8,11 @@ with fileinput.input(files=('input.txt')) as f:
         friends_list[-1] = friends_list[-1].strip()
         # friends_list = set(friends_list)
         for friend in friends_list:
-            key = sorted((person, friend))
+            key = tuple(sorted((person, friend)))
             value = friends_list
-            key_value_pairs.append([key, value])
-    print(key_value_pairs)
-    print('----------------')
+            key_value_pairs.append((key, tuple(value)))
+    # print(key_value_pairs)
+    # print('----------------')
 
     pairs1 = []
     keys = []
@@ -27,4 +27,7 @@ with fileinput.input(files=('input.txt')) as f:
             keys.append(key)
 
     for pair in pairs1:
-        print(pair)
+        out = str(pair[0]) + '   '
+        for val in pair[1]:
+            out += str(val) + ';'
+        print(out)
